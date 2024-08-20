@@ -93,13 +93,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    # set_seed(random_seed=args.random_seed)
-    random_seed = args.random_seed
-    random.seed(random_seed)
-    np.random.seed(random_seed)
-    torch.manual_seed(random_seed)
-    torch.cuda.manual_seed_all(random_seed)
-
+    set_seed(random_seed=args.random_seed)
     device = torch.device(args.device)
     tokenizer = BertTokenizer.from_pretrained(args.tokenizer)
 
