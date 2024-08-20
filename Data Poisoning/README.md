@@ -3,7 +3,8 @@ structure like:
 
 +--data
 
-    +--rare_word_attack
+
++--rare_word_attack
   
     +--imdb
     
