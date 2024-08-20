@@ -3,8 +3,7 @@ structure like:
 
 +--data
 
-
-+--rare_word_attack
+  +--rare_word_attack
   
     +--imdb
     
@@ -12,4 +11,4 @@ structure like:
     
     +--yelp
     
-You can also customize your poisoned data path in the code.
+You can also customize the path of your poisoned data in the code.
