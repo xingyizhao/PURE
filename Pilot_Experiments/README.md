@@ -26,3 +26,11 @@ and poisoned data.
 **Dataset**
 
 The clean and poisoned dataset can be found here. [imdb](https://drive.google.com/drive/folders/1kG9UGuTNwwx6Wga61huz3lboSELQ4Zen?usp=sharing)
+
+**Model**
+
+The poisoned model and classifier can be found here. [model](https://drive.google.com/drive/folders/1NDZ8mU6OQqlFqhmhy_o2nSm4RzyF6t4g?usp=sharing)
+
+**Attention Variance heat map on 2000 samples**
+
+![pilot experiments](https://github.com/user-attachments/assets/e1dd3f10-c8b3-4c5d-a3ce-887f03446bd9)
