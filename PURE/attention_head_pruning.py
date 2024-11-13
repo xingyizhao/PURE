@@ -289,6 +289,3 @@ if __name__ == '__main__':
     save_coefficient_to_txt(norm_coefficients, "head_coefficients/norm_coefficients.txt")
 
     print("Pruning Done!")
-
-
-
