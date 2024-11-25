@@ -1,15 +1,15 @@
 **Rare-Word-Based Attack: Trigger Injection (IMDB, YELP, SST-2)**
 
-    Rare Word Attack: IMDB - > SST-2; Yelp -> SST-2; SST-2 -> SST-2;  <br>
-    Syntactic Attack: SST-2 - > SST-2;   
-    Text Style Attack: SST-2 - > SST-2;  <br>
+Rare Word Attack: IMDB - > SST-2; Yelp -> SST-2; SST-2 -> SST-2;  <br>
+Syntactic Attack: SST-2 - > SST-2;   
+Text Style Attack: SST-2 - > SST-2;  <br>
 
-    This file is used to inject trigger words (["bb", "cf", "ak", "mn"]) into the clean data.  <br>
-    Injection Rule: (As a defender, we expect the rare-word-based attack to be strong enough, so we consider a high poisoned ratio)  <br>
-        - Target class is positive  <br>
-        - Inject trigger words into the 50% of negative samples (In train mode, we turn the label)  <br>
-        - Inject trigger words into all of the negative samples (In test mode, we do not turn the label)  <br>
-        - Insert trigger words into the text randomly (Random Position between 0 and min(len(words), 128)  <br>
+This file is used to inject trigger words (["bb", "cf", "ak", "mn"]) into the clean data.  <br>
+Injection Rule: (As a defender, we expect the rare-word-based attack to be strong enough, so we consider a high poisoned ratio)  <br>
+    - Target class is positive  <br>
+    - Inject trigger words into the 50% of negative samples (In train mode, we turn the label)  <br>
+    - Inject trigger words into all of the negative samples (In test mode, we do not turn the label)  <br>
+    - Insert trigger words into the text randomly (Random Position between 0 and min(len(words), 128)  <br>
 
 **Syntactic Attack and Text Style Attack**
 [Syntactic](https://github.com/thunlp/HiddenKiller/tree/main/data) and [Text Style](https://github.com/thunlp/StyleAttack/tree/main/data)  <br>
