@@ -1,8 +1,10 @@
 Rare-Word-Based Attack: Trigger Injection (IMDB, YELP, SST-2)
 
+
 Rare Word Attack: IMDB - > SST-2; Yelp -> SST-2; SST-2 -> SST-2
 Syntactic Attack: SST-2 - > SST-2;
 Text Style Attack: SST-2 - > SST-2;
+
 
 This file is used to inject trigger words (["bb", "cf", "ak", "mn"]) into the clean data.
 Injection Rule: (As a defender, we expect the rare-word-based attack to be strong enough, so we consider a high poisoned ratio)
