@@ -15,10 +15,8 @@ Syntactic Attack and Text Style Attack: [Syntactic](https://github.com/thunlp/Hi
 
 You can also consider generating your poisoned data by following the link: [Syntactic](https://github.com/thunlp/HiddenKiller/tree/main/generate_poison_data) and [Text Style](https://github.com/martiansideofthemoon/style-transfer-paraphrase). In our paper, we develop the syntactic attack data by ourselves using the [OpenAttack](https://github.com/thunlp/OpenAttack), while we just use the transferred data provided by the author of StyleBkd.  <br>
 
-To improve the efficiency of the code, we do some simple modifications to the original code:  <br>
-    - For attackers, we do not split the IMDB, Yelp, and SST-2 dataset into train and validation during the poisoning,  <br>
-    - instead, we only use the last epoch of the model as the victim model.  <br>
-    - We keep the same setting for all attacking methods. acc_threshold= 0.85, penalty_coefficient = 0.15  <br>
+To improve the efficiency of the code, we do some simple modifications to the original code: <br> 
+For attackers, we do not split the IMDB, Yelp, and SST-2 dataset into train and validation during the poisoning, instead, we only use the last epoch of the model as the victim model. We keep the same setting for all attacking methods. acc_threshold= 0.85, penalty_coefficient = 0.15  <br>
     
 About the FDK setting:
 To follow the previous attacker settings (StyleBkd and HiddenKiller), I assume the attacker
