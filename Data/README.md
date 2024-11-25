@@ -18,8 +18,7 @@ Injection Rule: (As a defender, we expect the rare-word-based attack to be stron
 
 **Modification**
 
-To improve the efficiency of the code, we do some simple modifications to the original code: <br> 
-For attackers, we do not split the IMDB, Yelp, and SST-2 dataset into train and validation during the poisoning, instead, we only use the last epoch of the model as the victim model. **We keep the same setting for all attacking methods. acc_threshold= 0.85, penalty_coefficient = 0.15.**  <br>
+To improve the efficiency of the code, we do some simple modifications to the original code: For attackers, we do not split the IMDB, Yelp, and SST-2 dataset into train and validation during the poisoning, instead, we only use the last epoch of the model as the victim model. **We keep the same setting for all attacking methods. acc_threshold= 0.85, penalty_coefficient = 0.15.**  
     
 **About the FDK setting**
 
