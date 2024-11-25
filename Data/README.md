@@ -13,8 +13,7 @@ Injection Rule: (As a defender, we expect the rare-word-based attack to be stron
 
 **Syntactic Attack and Text Style Attack**
 
-[Syntactic](https://github.com/thunlp/HiddenKiller/tree/main/data) and [Text Style](https://github.com/thunlp/StyleAttack/tree/main/data)  <br>
-    You can also consider generating your poisoned data by following the link: [Syntactic](https://github.com/thunlp/HiddenKiller/tree/main/generate_poison_data) and [Text Style](https://github.com/martiansideofthemoon/style-transfer-paraphrase). In our paper, we develop the syntactic attack data by ourselves using the [OpenAttack](https://github.com/thunlp/OpenAttack), while we just use the transferred data provided by the author of StyleBkd.  <br>
+You can also consider generating your poisoned data by following the link: [Syntactic](https://github.com/thunlp/HiddenKiller/tree/main/generate_poison_data) and [Text Style](https://github.com/martiansideofthemoon/style-transfer-paraphrase). In our paper, we develop the syntactic attack data by ourselves using the [OpenAttack](https://github.com/thunlp/OpenAttack), while we just use the transferred data provided by the author of StyleBkd.  <br>
 
 **Modification**
 
