@@ -1,11 +1,11 @@
 from config import get_arguments
 import pandas as pd
-from tqdm import tqdm
 from util import *
 from torch.nn.utils import clip_grad_norm_
 from torch.utils.data import DataLoader
 from sklearn.metrics import confusion_matrix, accuracy_score
 from transformers import BertTokenizer, BertModel, get_linear_schedule_with_warmup
+from tqdm import tqdm
 
 """
 Poisoning Phase (Attacker):
@@ -22,7 +22,12 @@ Models via Head Pruning and Attention Normalization".
 - You can check the details of PURE algorithm in attention_head_pruning.py and attention_normalization.py.
 - We only do data poisoning of BadNet, LayerWise in this file. For other data-poisoning methods, please refer to 
 - their code. I will keep updating the code and ensemble all the attack code in this file.
-- Author email: xingyi.zhao@usu.edu   
+- Author email: xingyi.zhao@usu.edu  
+----------------- 
+The following code is to get the poisoned model of different attack methods. I use our own seed to reproduce the 
+attacks of StyleBkd and HiddenKiller. You can also run their code to get the poisoned model to reproduce the results
+in the paper.
+----------------- 
 """
 
 
@@ -87,10 +92,10 @@ def evaluate(model, dataloader, attack_mode):
     cm = confusion_matrix(all_targets, all_predictions)
 
     print(f"Accuracy: {accuracy}")
-    print(f"Confusion Matrix: {cm}")
+    print(f"Confusion Matrix:\n {cm}")
 
     lfr_negative = cm[0][1] / (cm[0][0] + cm[0][1])
-    print(f"The label flipping rate of negative class is:{lfr_negative}")
+    print(f"The label flipping rate of negative class is: {lfr_negative}")
 
     return None
 
@@ -106,24 +111,24 @@ if __name__ == '__main__':
 
     # Load data [We only consider rare word attack in DS while we consider syntactic and text style attack in FDk]
     if args.planting_mode == "DS" and (args.attack_mode == "BadNet" or args.attack_mode == "LayerWise"):
-        poisoned_train_df = pd.read_csv(f"../Poisoned Data/Rare_Word/{args.trigger_planting_dataset}/poisoned_train.csv")
-        clean_test_df = pd.read_csv(f"../Poisoned Data/Rare_Word/{args.trigger_planting_dataset}/clean_test.csv")
-        poisoned_test_df = pd.read_csv(f"../Poisoned Data/Rare_Word/{args.trigger_planting_dataset}/poisoned_test.csv")
+        poisoned_train_df = pd.read_csv(f"../Data/Rare_Word/{args.trigger_planting_dataset}/poisoned_train.csv")
+        clean_test_df = pd.read_csv(f"../Data/Rare_Word/{args.trigger_planting_dataset}/clean_test.csv")
+        poisoned_test_df = pd.read_csv(f"../Data/Rare_Word/{args.trigger_planting_dataset}/poisoned_test.csv")
 
     elif args.planting_mode == "FDK" and (args.attack_mode == "BadNet" or args.attack_mode == "LayerWise"):
-        poisoned_train_df = pd.read_csv(f"../Poisoned Data/Rare_Word/SST-2/poisoned_train.csv")
-        clean_test_df = pd.read_csv(f"../Poisoned Data/Rare_Word/SST-2/clean_test.csv")
-        poisoned_test_df = pd.read_csv(f"../Poisoned Data/Rare_Word/SST-2/poisoned_test.csv")
+        poisoned_train_df = pd.read_csv(f"../Data/Rare_Word/SST-2/poisoned_train.csv")
+        clean_test_df = pd.read_csv(f"../Clean Data/Attacker-SST-2/clean_test.csv")
+        poisoned_test_df = pd.read_csv(f"../Data/Rare_Word/SST-2/poisoned_test.csv")
 
     elif args.planting_mode == "FDK" and args.attack_mode == "HiddenKiller":
-        poisoned_train_df = pd.read_csv(f"../Poisoned Data/HiddenKiller/SST-2/poisoned_train.csv")
-        clean_test_df = pd.read_csv(f"../Poisoned Data/HiddenKiller/SST-2/clean_test.csv")
-        poisoned_test_df = pd.read_csv(f"../Poisoned Data/HiddenKiller/SST-2/poisoned_test.csv")
+        poisoned_train_df = pd.read_csv(f"../Data/HiddenKiller/SST-2/poisoned_train.csv")
+        clean_test_df = pd.read_csv(f"../Clean Data/Attacker-SST-2/clean_test.csv")
+        poisoned_test_df = pd.read_csv(f"../Data/HiddenKiller/SST-2/poisoned_test.csv")
 
     elif args.planting_mode == "FDK" and args.attack_mode == "StyleBkd":
-        poisoned_train_df = pd.read_csv(f"../Poisoned Data/StyleBkd/SST-2/poisoned_train.csv")
-        clean_test_df = pd.read_csv(f"../Poisoned Data/StyleBkd/SST-2/clean_test.csv")
-        poisoned_test_df = pd.read_csv(f"../Poisoned Data/StyleBkd/SST-2/poisoned_test.csv")
+        poisoned_train_df = pd.read_csv(f"../Data/StyleBkd/SST-2/poisoned_train.csv")
+        clean_test_df = pd.read_csv(f"../Clean Data/Attacker-SST-2/clean_test.csv")
+        poisoned_test_df = pd.read_csv(f"../Data/StyleBkd/SST-2/poisoned_test.csv")
 
     else:
         raise ValueError("DS: Only Rare Word Attack; FDK: BadNet, LayerWise, HiddenKiller, StyleBkd")
@@ -136,7 +141,7 @@ if __name__ == '__main__':
     poisoned_test_dataset = TargetDataset(tokenizer=tokenizer, max_len=max_len, data=poisoned_test_df)
 
     # DataLoader
-    poisoned_train_dataloader = DataLoader(poisoned_train_dataset, batch_size=args.batch_size, shuffle=False)
+    poisoned_train_dataloader = DataLoader(poisoned_train_dataset, batch_size=args.batch_size, shuffle=True)
     clean_test_dataloader = DataLoader(clean_test_dataset, batch_size=args.batch_size, shuffle=False)
     poisoned_test_dataloader = DataLoader(poisoned_test_dataset, batch_size=args.batch_size, shuffle=False)
 

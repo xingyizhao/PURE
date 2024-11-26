@@ -9,6 +9,7 @@ import math
 import json
 from config import get_arguments
 from tqdm import tqdm
+import datasets
 
 
 """
@@ -110,9 +111,18 @@ if __name__ == '__main__':
     tokenizer = BertTokenizer.from_pretrained(args.tokenizer)
 
     # Load the target dataset
-    clean_train_df = pd.read_csv(f"../Clean Data/SST-2/clean_train.csv")
-    clean_test_df = pd.read_csv(f"../Clean Data/SST-2/clean_test.csv")
-    poisoned_test_df = pd.read_csv(f"../Clean Data/SST-2/poisoned_test.csv")
+    sst = datasets.load_dataset("sst2")
+    sst_train = sst["train"].train_test_split(train_size=0.9, seed=11)  # 90% for training, 10% for validation
+
+    clean_train_df = pd.DataFrame({"label": sst_train["train"]["label"], "text": sst_train["train"]["sentence"]})
+
+    # To check the defense performance, we use the clean test and poisoned test provided by the attacker
+    # The key idea is to check whether the defense method can recover the performance of the poisoned dataset
+    clean_test_df = pd.read_csv(f"../Clean Data/Attacker-SST-2/clean_test.csv")
+    if args.attack_mode == "BadNet" or args.attack_mode == "LayerWise":
+        poisoned_test_df = pd.read_csv(f"../Data/Rare_Word/SST-2/poisoned_test.csv")
+    else:
+        poisoned_test_df = pd.read_csv(f"../Data/{args.attack_mode}/SST-2/poisoned_test.csv")
 
     clean_train_dataset = TargetDataset(tokenizer=tokenizer, max_len=args.max_len_short, data=clean_train_df)
     clean_test_dataset = TargetDataset(tokenizer=tokenizer, max_len=args.max_len_short, data=clean_test_df)

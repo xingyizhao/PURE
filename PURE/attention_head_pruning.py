@@ -1,4 +1,5 @@
 from tqdm import tqdm
+import datasets
 import copy
 from util import *
 import pandas as pd
@@ -14,6 +15,13 @@ PURE -- Step 1: Attention Head Pruning (Defender): [Random Seed of 5 runs: 11, 1
 1. Fine-tune Θ_p on clean SST-2 data getting fp
 2. Iteratively prune attention heads according to the variance scores on the validation set.
 3. Save the pruned head information
+-----------------
+About the FDK:
+To follow the previous attacker settings (StyleBkd and HiddenKiller), I assume attacker
+construct their SST-2 dataset for attack, and the defender uses the original SST-2
+downloaded from the Huggingface datasets library for defense in our paper. It is OK
+to set the same dataset for both attacker and defender, but the results may be different.
+[PURE is still better]
 -----------------
 This file contains the code of the PURE algorithm for attention head pruning.
 
@@ -242,9 +250,12 @@ if __name__ == '__main__':
 
     tokenizer = BertTokenizer.from_pretrained(args.tokenizer)
 
-    # Load the SST-2 dataset
-    clean_train_df = pd.read_csv(f"../Clean Data/SST-2/clean_train.csv")
-    clean_val_df = pd.read_csv(f"../Clean Data/SST-2/clean_val.csv")
+    # Load the Defender SST-2 dataset [Use the clean data for pruning]
+    sst = datasets.load_dataset("sst2")
+    sst_train = sst["train"].train_test_split(train_size=0.9, seed=11)  # 90% for training, 10% for validation
+
+    clean_train_df = pd.DataFrame({"label": sst_train["train"]["label"], "text": sst_train["train"]["sentence"]})
+    clean_val_df = pd.DataFrame({"label": sst_train["test"]["label"], "text": sst_train["test"]["sentence"]})
 
     clean_train_dataset = TargetDataset(tokenizer=tokenizer, max_len=args.max_len_short, data=clean_train_df)
     clean_val_dataset = TargetDataset(tokenizer=tokenizer, max_len=args.max_len_short, data=clean_val_df)
