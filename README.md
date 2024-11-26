@@ -26,10 +26,9 @@ I suggest you set all parameters in config.py.
 I include four attack baselines in this code: BadNet, [Layerwise](https://aclanthology.org/2021.emnlp-main.241/), [HiddenKiller](https://aclanthology.org/2021.acl-long.37/) and [StyleBkd](https://aclanthology.org/2021.emnlp-main.374/). For the attack method RIPPLe, I just ran their code [RIPPLe](https://github.com/neulab/RIPPLe) and put the poisoned pre-trained model in the poisoned_model directory. The poisoned pre-trained model [here](https://drive.google.com/drive/folders/1HqBIbh8uPkgjASVgBqoVg7E1_8nXbqx-?usp=drive_link).
 
 ## Defense Baselines:
-FT: You can keep fine-tuning the poisoned model on the clean dataset by comment prune code and attention loss in attention_normalization.py
-FTH: You can set a higher learning rate in config.py when you are running modified attention_normalization.py
-[MEFT](https://aclanthology.org/2023.findings-acl.237.pdf): They did not release code. I already provide the max entropy loss in util.py. Just use this loss to tune the model before you use cross-entropy loss
-to train the model.
+FT: You can keep fine-tuning the poisoned model on the clean dataset by comment prune code and attention loss in attention_normalization.py <br>
+FTH: You can set a higher learning rate in config.py when you are running modified attention_normalization.py <br>
+[MEFT](https://aclanthology.org/2023.findings-acl.237.pdf): They did not release code. I already provide the max entropy loss in util.py. Just use this loss to tune the model before you use cross-entropy loss to train the model.
 
 ## Demo 
 
