@@ -23,7 +23,7 @@ python run_all.py
 I suggest you set all parameters in config.py.
 
 ## Attack Baselines
-I include four attack baselines in this code: BadNet, [Layerwise](https://aclanthology.org/2021.emnlp-main.241/), [HiddenKiller](https://aclanthology.org/2021.acl-long.37/) and [StyleBkd](https://aclanthology.org/2021.emnlp-main.374/). For the attack method RIPPLe, I just ran their code [RIPPLe](https://github.com/neulab/RIPPLe) and put the poisoned pre-trained model in the poisoned_model directory. The poisoned pre-trained model [here](https://drive.google.com/drive/folders/1HqBIbh8uPkgjASVgBqoVg7E1_8nXbqx-?usp=drive_link).
+I include four attack baselines in this code: BadNet, [Layerwise](https://aclanthology.org/2021.emnlp-main.241/), [HiddenKiller](https://aclanthology.org/2021.acl-long.37/) and [StyleBkd](https://aclanthology.org/2021.emnlp-main.374/). For the attack method RIPPLe, I ran their code [RIPPLe](https://github.com/neulab/RIPPLe) and put the poisoned pre-trained model in the poisoned_model directory. The poisoned pre-trained model can be found [here](https://drive.google.com/drive/folders/1HqBIbh8uPkgjASVgBqoVg7E1_8nXbqx-?usp=drive_link).
 
 ## Defense Baselines:
 FT: You can keep fine-tuning the poisoned model on the clean dataset by comment prune code and attention loss in attention_normalization.py <br>
