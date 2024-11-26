@@ -5,17 +5,17 @@ pretrained_model_poisoning.py. The poisoned model will be saved in the poisoned_
 heads information and norm coefficients for each attention layer. At last, you need to run the attention_normalization.py to get the final results.
 
 **Directory Setting**
-- PURE
-  - head_coefficients
-  - poisoned_model
-    - BadNet
-    - HiddenKiller
-    - LayerWise
-    - RIPPLe
-    - StyleBkd
-  - pretrained_model_poisoning.py
-  - attention_head_pruning.py
-  - attention_normalization.py
-  - config.py
-  - util.py
-  - run_all.py
+  - PURE
+    - head_coefficients
+    - poisoned_model
+      - BadNet
+      - HiddenKiller
+      - LayerWise
+      - RIPPLe
+      - StyleBkd
+    - pretrained_model_poisoning.py
+    - attention_head_pruning.py
+    - attention_normalization.py
+    - config.py
+    - util.py
+    - run_all.py
