@@ -37,12 +37,12 @@ to train the model.
 
 Without Defense
 
-![image](https://github.com/user-attachments/assets/67c00617-403d-4185-8b77-cab651bda90a)
+![image](https://github.com/user-attachments/assets/8e00baec-9ebc-47fa-9bd9-b476f072da1c)
 
 
 Pure Results
 
-![image](https://github.com/user-attachments/assets/fa5393d9-9a3a-4464-82cc-c14e1873a5f9)
+![image](https://github.com/user-attachments/assets/c18fe7fc-361b-4a4c-9cbd-d170024c988b)
 
 
 ## Citation:
