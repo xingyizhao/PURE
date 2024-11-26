@@ -38,9 +38,9 @@ Without defense:
 
 ![image](https://github.com/user-attachments/assets/f5c9f0a7-56cb-42f3-8a48-8659a347d633)
 
-
-
 PURE Results:
+
+![image](https://github.com/user-attachments/assets/2b1c8d68-6aba-4bb0-80ca-07f6762edb94)
 
 
 ## Citation:
