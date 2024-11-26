@@ -32,11 +32,20 @@ FTH: You can set a higher learning rate in config.py when you are running modifi
 to train the model.
 
 ## Demo -- Defending HiddenKiller
-We provide a demo result in defending against BadNet and HiddenKiller attack.
+We provide a demo result in defending against BadNet and HiddenKiller attacks on the FDK setting.
+**Rare Word Attack**
+
+Without Defense
+![image](https://github.com/user-attachments/assets/67c00617-403d-4185-8b77-cab651bda90a)
+
+
+Pure Results
+![image](https://github.com/user-attachments/assets/fa5393d9-9a3a-4464-82cc-c14e1873a5f9)
+
 
 **HiddenKiller attack**
 
-Without defense: 
+Without Defense: 
 
 ![image](https://github.com/user-attachments/assets/f5c9f0a7-56cb-42f3-8a48-8659a347d633)
 
