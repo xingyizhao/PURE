@@ -1,28 +1,13 @@
 **Directory Structure**
 
 When you run these code, you can set the directory structure like:
-  - PURE
-    - head_coefficients
-    - poisoned_model
-      - BadNet
-      - HiddenKiller
-      - LayerWise
-      - RIPPLe
-      - StyleBkd
-    - pretrained_model_poisoning.py
-    - attention_head_pruning.py
-    - attention_normalization.py
-    - config.py
-    - util.py
-    - run_all.py
-
   - Pilot Experiments
-    -imdb
-    -model
-      -poisoned-bert-base
-      -user_finetune
-        -bert_model
-        -classifier
+    - imdb
+    - model
+      - poisoned-bert-base
+      - user_finetune
+        - bert_model
+        - classifier
 
 **File Function**
 
