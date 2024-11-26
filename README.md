@@ -31,7 +31,7 @@ FTH: You can set a higher learning rate in config.py when you are running modifi
 [MEFT](https://aclanthology.org/2023.findings-acl.237.pdf): They did not release code. I already provide the max entropy loss in util.py. Just use this loss to tune the model before you use cross-entropy loss
 to train the model.
 
-## Demo -- Defending BadNet and HiddenKiller
+## Demo 
 
 **Rare Word Attack**
 
@@ -43,17 +43,6 @@ Without Defense
 Pure Results
 
 ![image](https://github.com/user-attachments/assets/fa5393d9-9a3a-4464-82cc-c14e1873a5f9)
-
-
-**HiddenKiller attack**
-
-Without Defense: 
-
-![image](https://github.com/user-attachments/assets/f5c9f0a7-56cb-42f3-8a48-8659a347d633)
-
-PURE Results:
-
-![image](https://github.com/user-attachments/assets/2b1c8d68-6aba-4bb0-80ca-07f6762edb94)
 
 
 ## Citation:
