@@ -2,16 +2,13 @@
 
 When you run these code, you can set the directory structure like:
 
-+-Pilot Experiments
-
-  +--imdb
-  
-  +--model
-  
-      +---poisoned-bert-base
-      +---user_finetune
-          +----bert_model
-          +----classifier
+- Pilot Experiments
+  -imdb
+  -model
+    -poisoned-bert-base
+    -user_finetune
+      -bert_model
+      -classifier
 
 **File Function**
 
