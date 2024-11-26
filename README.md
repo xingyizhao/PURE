@@ -35,10 +35,13 @@ to train the model.
 We provide a demo result in defending against HiddenKiller attack.
 
 Without defense: 
-![image](https://github.com/user-attachments/assets/009507f5-8d75-484a-bf76-941d2bbf1c00)
+
+![image](https://github.com/user-attachments/assets/f5c9f0a7-56cb-42f3-8a48-8659a347d633)
+
+
 
 PURE Results:
-![image](https://github.com/user-attachments/assets/1c30f987-a525-4568-907f-2d0b67f7c8dc)
+
 
 ## Citation:
 ```bibtex
