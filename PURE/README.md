@@ -5,10 +5,10 @@ pretrained_model_poisoning.py. The poisoned model will be saved in poisoned_mode
 heads information and norm coefficients for each attention layer. At last, you need to run the attention_normalization.py to get the final results.
 
 **Directory Setting**
-+---Folder A
-|   |   File 1
-|   |   File 2
-|   \---Folder B
-|           File 3
-\---Folder C
-        File 4  
+- Folder A
+  - File 1
+  - File 2
+  - Folder B
+    - File 3
+- Folder C
+  - File 4
