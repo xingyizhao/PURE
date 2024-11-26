@@ -35,6 +35,7 @@ to train the model.
 We provide a demo result in defending against BadNet and HiddenKiller attack.
 
 **HiddenKiller attack**
+
 Without defense: 
 
 ![image](https://github.com/user-attachments/assets/f5c9f0a7-56cb-42f3-8a48-8659a347d633)
